@@ -1,16 +1,7 @@
-import SectionTitle from 'components/SectionTitle';
-import PhoneBookForm from 'components/Form/Form';
-import Contacts from 'components/Contacts';
-import { Container } from 'components/App/App.styled';
+import { ContactsSection } from 'components/ContactsSection/ContactsSection';
 
 const ContactsPage = () => {
-  return (
-    <Container>
-      <SectionTitle title="Phonebook" />
-      <PhoneBookForm />
-      <Contacts title={'Contacts'} />
-    </Container>
-  );
+  return <ContactsSection />;
 };
 
 export default ContactsPage;

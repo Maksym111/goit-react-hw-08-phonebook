@@ -1,7 +1,12 @@
 import styled from '@emotion/styled';
+import { Button } from '@mui/material';
 
 const ContainerContacts = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
+  padding-bottom: 0;
 `;
 
 const Title = styled.h2`
@@ -21,6 +26,7 @@ const Label = styled.label`
 const Input = styled.input`
   width: 200px;
   padding: 5px 10px;
+  margin-bottom: 20px;
 
   border: 1px solid black;
   border-radius: 4px;
@@ -58,18 +64,11 @@ const ContactItem = styled.li`
   }
 `;
 
-const DeleteBtn = styled.button`
+const DeleteBtn = styled(Button)`
   width: 80px;
   height: 25px;
 
-  border: 1px solid black;
-  border-radius: 4px;
-
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-
-  :hover {
-    box-shadow: gray 0px 4px 8px;
-  }
 `;
 
 export {

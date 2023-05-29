@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { initialState } from './initialState';
-import { logIn, logOut } from './auth-operations';
+import { fetchThunkUser, logIn, logOut } from './auth-operations';
 
 const handleLoginFulfiled = (state, { payload: { data } }) => {
   state.user = data.user;
@@ -10,12 +10,15 @@ const handleLoginFulfiled = (state, { payload: { data } }) => {
 
 const handleLogoutFulfiled = state => {
   state.user = '';
-  state.token = '';
+  state.token = null;
   state.isLoggedIn = false;
 };
 
-const handleRejected = (state, { payload }) => {
-  console.log('payload', payload);
+const handleRejected = (state, { payload }) => {};
+
+const handleCurrentUser = (state, { payload }) => {
+  state.user = payload;
+  state.isLoggedIn = true;
 };
 
 export const authSlice = createSlice({
@@ -25,7 +28,8 @@ export const authSlice = createSlice({
     builder
       .addCase(logIn.fulfilled, handleLoginFulfiled)
       .addCase(logIn.rejected, handleRejected)
-      .addCase(logOut.fulfilled, handleLogoutFulfiled);
+      .addCase(logOut.fulfilled, handleLogoutFulfiled)
+      .addCase(fetchThunkUser.fulfilled, handleCurrentUser);
   },
 });
 

@@ -46,7 +46,9 @@ const PhoneBookForm = () => {
         required
       />
 
-      <BtnAdd type="submit">Add contact</BtnAdd>
+      <BtnAdd variant="contained" size="small" color="success" type="submit">
+        Add contact
+      </BtnAdd>
     </Form>
   );
 };

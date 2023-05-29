@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from 'redux/auth/auth-operations';
 import { selectIsLogged, selectUser } from 'redux/auth/auth-selectors';
+import { EmailTitle, LogOutBtn, Wrap } from './UserMenu.styled';
 
 const UserMenu = () => {
   const { email } = useSelector(selectUser);
@@ -20,12 +21,19 @@ const UserMenu = () => {
   };
 
   return (
-    <div>
-      <p>{email}</p>
-      <button type="button" onClick={handleLogOutBtn}>
-        Logout
-      </button>
-    </div>
+    <Wrap>
+      <EmailTitle>{email}</EmailTitle>
+      <LogOutBtn
+        variant="contained"
+        size="small"
+        color="error"
+        disableElevation
+        type="button"
+        onClick={handleLogOutBtn}
+      >
+        Log out
+      </LogOutBtn>
+    </Wrap>
   );
 };
 

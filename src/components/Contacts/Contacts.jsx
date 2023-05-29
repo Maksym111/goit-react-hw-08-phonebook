@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts, getFilter } from 'redux/contacts/selectors';
 import { filterContacts } from 'redux/contacts/filterSlice';
 import { deleteContact, getAllContacts } from 'redux/contacts/operations';
-import { useEffect } from 'react';
 
 import {
   ContactItem,
@@ -58,6 +58,9 @@ const Contacts = ({ title }) => {
                 {name}: {number}
               </p>
               <DeleteBtn
+                variant="contained"
+                size="small"
+                color="error"
                 type="button"
                 onClick={() => {
                   onItemDelete(id);

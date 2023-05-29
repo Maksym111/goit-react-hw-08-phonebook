@@ -43,6 +43,22 @@ export const logOutUser = async () => {
   }
 };
 
+export const getCurrentUser = async thunkApi => {
+  const state = thunkApi.getState();
+  const tokenState = state.auth.token;
+  if (tokenState === null) {
+    return thunkApi.rejectWithValue();
+  }
+
+  token.set(tokenState);
+  try {
+    const { data } = await instance.get('/users/current');
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const postContact = async ({ name, number }) => {
   const { data } = await instance.post('/contacts', {
     name,

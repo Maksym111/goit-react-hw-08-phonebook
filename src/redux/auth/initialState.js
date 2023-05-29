@@ -1,6 +1,6 @@
 export const initialState = {
   user: { name: null, email: null, password: null },
-  token: '',
+  token: null,
   isLoggedIn: false,
   error: '',
 };
