@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { logIn } from '../redux/auth/auth-operations';
 import { useNavigate } from 'react-router-dom';
 

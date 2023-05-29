@@ -1,11 +1,11 @@
 import { ApiContact } from 'fetch';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import { useNavigate } from 'react-router-dom';
 
 const RegistrationUserPage = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
