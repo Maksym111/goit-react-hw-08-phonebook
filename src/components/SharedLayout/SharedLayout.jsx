@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import { selectIsLogged } from 'redux/auth/auth-selectors';
-import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Container, NavItem, Navigation } from './SharedLayout.styled';
 import UserMenu from 'components/UserMenu/UserMenu';
@@ -22,10 +21,7 @@ const SharedLayout = () => {
           {!isLoggedIn ? <NavItem to="/login">Login</NavItem> : <UserMenu />}
         </Navigation>
       </AppBar>
-
-      <Suspense fallback={<div>Loading...</div>}>
-        <Outlet />
-      </Suspense>
+      <Outlet />
     </Container>
   );
 };
